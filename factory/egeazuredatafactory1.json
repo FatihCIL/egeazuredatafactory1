@@ -1,0 +1,9 @@
+{
+	"name": "egeazuredatafactory1",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd7f3287-3338-4a58-8771-7b2e5986a655",
+		"tenantId": "9344ef6e-ce23-4f26-8e3c-cf2abc845f69"
+	}
+}

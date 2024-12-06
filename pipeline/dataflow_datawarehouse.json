@@ -1,0 +1,68 @@
+{
+	"name": "dataflow_datawarehouse",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow trigger",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "StoredProsedureClearTables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Dataflow_sql_to_synapsesql",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "egeazuredatafactory1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "staging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "StoredProsedureClearTables",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[ClearTables]"
+				},
+				"linkedServiceName": {
+					"referenceName": "egesynapseworkspace",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-12-05T09:58:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

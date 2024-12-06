@@ -1,9 +1,9 @@
 {
-	"name": "Pipeline_CSV_Pool",
+	"name": "activitylogpipeline1",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy_r4r",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -13,7 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "data//"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.PoolActivityLog"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
@@ -24,15 +33,16 @@
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
 						}
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"writeBehavior": "Insert",
-						"sqlWriterUseTableLock": false
+						"writeBehavior": "Insert"
 					},
 					"enableStaging": false,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -178,20 +188,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "activitylog_csv",
+						"referenceName": "SourceDataset_r4r",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "GitExamplePoolActivityLog",
+						"referenceName": "DestinationDataset_r4r",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2024-12-05T11:13:22Z"
+		"lastPublishTime": "2024-12-04T12:26:32Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

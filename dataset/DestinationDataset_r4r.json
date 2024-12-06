@@ -1,8 +1,8 @@
 {
-	"name": "GitExamplePoolActivityLog",
+	"name": "DestinationDataset_r4r",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "GitLinkedService2",
+			"referenceName": "egesynapseworkspace",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
