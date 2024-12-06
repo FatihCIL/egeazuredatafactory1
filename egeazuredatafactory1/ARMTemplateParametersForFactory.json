@@ -5,13 +5,28 @@
 		"factoryName": {
 			"value": "egeazuredatafactory1"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
 		"GitLinkedService1_accountKey": {
 			"value": ""
 		},
 		"GitLinkedService2_connectionString": {
 			"value": ""
 		},
+		"egeazuredatafactory1_accountKey": {
+			"value": ""
+		},
+		"egesynapseworkspace_connectionString": {
+			"value": ""
+		},
 		"GitLinkedService1_properties_typeProperties_url": {
+			"value": "https://egedatalake2.dfs.core.windows.net/"
+		},
+		"egeazuredatafactory1_properties_typeProperties_url": {
 			"value": "https://egedatalake2.dfs.core.windows.net/"
 		}
 	}
